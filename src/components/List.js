@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import Item from '../containers/Item'
+import Infinite from 'react-infinite'
 
 const propTypes = {
   items: PropTypes.array
@@ -12,12 +13,14 @@ class List extends PureComponent {
       <div>
         <h1>Books</h1>
         <ul>
-          {items.map(item =>
-            <Item
-              key={item.id}
-              id={item.id}
-            />
-          )}
+          <Infinite elementHeight={18} useWindowAsScrollContainer>
+            {items.map(item =>
+              <Item
+                key={item.id}
+                id={item.id}
+              />
+            )}
+          </Infinite>
         </ul>
       </div>
     )
