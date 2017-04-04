@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 
 const propTypes = {
   id: PropTypes.string,
@@ -11,7 +11,7 @@ const propTypes = {
 const SELECTED = 'selected';
 const NOT_SELECTED = '';
 
-class Item extends Component {
+class Item extends PureComponent {
 
   handleClick = () => {
     const { id, onSelect } = this.props
