@@ -8,7 +8,15 @@ const propTypes = {
   onSelect: PropTypes.func
 }
 
+const SELECTED = 'selected';
+const NOT_SELECTED = '';
+
 class Item extends Component {
+
+  handleClick = () => {
+    const { id, onSelect } = this.props
+    onSelect(id)
+  }
 
   render() {
     const {
@@ -19,14 +27,8 @@ class Item extends Component {
       onSelect
     } = this.props
 
-    const style = {
-      color: selected ? 'blue' : 'black'
-    }
-
-    const onClick = () => onSelect(id)
-
     return (
-      <li style={style} onClick={onClick}>{name} by {author.name}</li>
+      <li className={selected ? SELECTED : NOT_SELECTED} onClick={this.handleClick}>{name} by {author.name}</li>
     )
   }
 }
