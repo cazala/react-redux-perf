@@ -22,6 +22,14 @@ const booksInitialState = {
   }
 }
 
+for (let i = 4; i < 5000; i++) {
+  booksInitialState[i] = {
+    id: i,
+    name: 'Harry Potter',
+    authorId: 2,
+  }
+}
+
 function booksReducer(state = booksInitialState, action) {
   switch (action.type) {
     //...
