@@ -1,5 +1,5 @@
-import Item from './Item'
 import React, { PureComponent, PropTypes } from 'react'
+import Item from '../containers/Item'
 
 const propTypes = {
   items: PropTypes.array
@@ -16,10 +16,6 @@ class List extends PureComponent {
             <Item
               key={item.id}
               id={item.id}
-              name={item.name}
-              author={item.author}
-              selected={item.selected}
-              onSelect={onSelect}
             />
           )}
         </ul>

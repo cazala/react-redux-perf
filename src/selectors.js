@@ -9,14 +9,12 @@ export const getUI = (state) => state.ui
 export const getList = createSelector(
   getBooks,
   getAuthors,
-  getUI,
-  (books, authors, ui) => Object.keys(books)
+  (books, authors) => Object.keys(books)
     .map(bookId => {
       const book = books[bookId]
       return {
         ...book,
-        author: authors[book.authorId],
-        selected: ui.selected === book.id
+        author: authors[book.authorId]
       }
     })
 )
